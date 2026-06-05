@@ -153,16 +153,22 @@ pip install -r requirements.txt
 
 ### 2. Configure environment variables
 
-Copy the example file and fill in your keys:
+Two `.env` files are required — one for the ingestion notebook and one for the ADK agent:
 
 ```bash
+# Root — used by data_ingestion.ipynb
 cp .env.example .env
+
+# Agent — used by the Google ADK runtime
+cp hiking_agent/.env.example hiking_agent/.env
 ```
 
-```env
-OPENAI_API_KEY=sk-...   # used for text-embedding-3-small
-GOOGLE_API_KEY=...      # used by Google ADK for Gemini
-```
+| File | Keys |
+|---|---|
+| `.env` | `OPENAI_API_KEY` |
+| `hiking_agent/.env` | `GOOGLE_API_KEY`, `OPENAI_API_KEY`, `GOOGLE_GENAI_USE_VERTEXAI` |
+
+> Set `GOOGLE_GENAI_USE_VERTEXAI=0` to use the Gemini API directly (no Vertex AI setup required).
 
 ### 3. Populate the vector store
 
