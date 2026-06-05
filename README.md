@@ -8,23 +8,37 @@ Built with **LangChain**, **Chroma**, **OpenAI Embeddings**, and **Google's Agen
 
 ## Demo
 
-```
-User:  What's the best time of year to hike the Enchantments?
-Agent: The Enchantments are typically accessible from late June through October,
-       with peak conditions in August and September when the snow has melted and
-       the larches turn golden. An overnight permit via the Recreation.gov lottery
-       is required — the advance lottery opens in February, and a daily lottery
-       runs May through October...
-```
+The following exchanges are from a live session on `adk web`.
 
-```
-User:  Recommend some easy hikes near Seattle suitable for kids.
-Agent: A few great options close to Seattle:
-       • Rattlesnake Ledge — 4 miles round trip, 1,100 ft gain, rewarding views
-         at the top with minimal technical difficulty.
-       • Little Si — 5 miles round trip, a gentler version of Mount Si with
-         forest trail and a rocky viewpoint...
-```
+---
+
+**What's the hardest hike in Washington state?**
+
+> The Wonderland Trail, which circumnavigates Mount Rainier, is one of the more challenging hikes in Washington state. It's approximately 93 miles long with a cumulative 22,000 feet of elevation gain, taking an average of 10 to 14 days to complete. The trail goes over many ridges of Mount Rainier and passes through various life zones from lowland forests to subalpine meadows.
+
+---
+
+**What are the current trail conditions in North Cascades?**
+
+> The best weather for visiting the North Cascades is generally between mid-June and late-September, with snow typically off all but the highest trails by July. Spring and autumn are also popular for scenic drives and wildlife viewing in the valleys, though storms with rain and wind are common, requiring warm, waterproof clothing and a tent for backcountry trips.
+>
+> Heavy snow and rain, especially at high elevations, characterize winters, with avalanches common in winter and spring. The east side of the Cascades (e.g., Stehekin) tends to be drier and warmer in summer, with temperatures reaching into the 90s, while winter brings snow cover to elevations above 2,000 feet from late fall into spring.
+>
+> For the most up-to-date, trail-by-trail conditions, it's recommended to check the official North Cascades National Park website.
+
+---
+
+**Hikes suitable for kids on the Olympic Peninsula?**
+
+> For hikes suitable for kids on the Olympic Peninsula, consider these options:
+>
+> **Ozette Loop** — This 9-mile loop offers a 3-mile section with a boardwalk through a coastal cedar swamp, which is generally easy walking. The trail also includes a 3-mile walk along the ocean. The boardwalk-enhanced sections make it more accessible.
+>
+> **Hurricane Hill Trail** — Located near the Hurricane Ridge visitor center, this is a paved trail about 1.6 miles long each way, with an elevation gain of about 700 feet. Its paved surface and relatively short length make it a good option for families with children. Be aware that snow can be present on the trails even as late as July.
+
+---
+
+> **Honest limitations:** Queries requiring specific per-trail data (exact distances, difficulty ratings for individual hikes) sometimes return partial answers because the current knowledge base is built from regional/park-level sources rather than per-trail databases. See [Potential Improvements](#potential-improvements) for how this would be addressed.
 
 ---
 
@@ -139,11 +153,15 @@ pip install -r requirements.txt
 
 ### 2. Configure environment variables
 
-Create a `.env` file in the project root:
+Copy the example file and fill in your keys:
+
+```bash
+cp .env.example .env
+```
 
 ```env
-OPENAI_API_KEY=sk-...
-GOOGLE_API_KEY=...        # required by Google ADK for Gemini
+OPENAI_API_KEY=sk-...   # used for text-embedding-3-small
+GOOGLE_API_KEY=...      # used by Google ADK for Gemini
 ```
 
 ### 3. Populate the vector store
