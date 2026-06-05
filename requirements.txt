@@ -1,0 +1,12 @@
+ipykernel
+langchain
+langchain-community
+langchain-chroma
+langchain-openai
+chromadb
+python-dotenv
+beautifulsoup4
+lxml
+requests
+google-adk
+google-cloud-resource-manager

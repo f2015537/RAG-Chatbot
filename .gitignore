@@ -1,0 +1,21 @@
+# Environment
+.env
+
+# Chroma vector store (populated by data_ingestion.ipynb)
+chroma_db/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ADK runtime files
+**/.adk/
+
+# macOS
+.DS_Store
