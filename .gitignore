@@ -1,5 +1,6 @@
 # Environment
 .env
+*/.env
 
 # Chroma vector store (populated by data_ingestion.ipynb)
 chroma_db/
